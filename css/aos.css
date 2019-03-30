@@ -1,0 +1,10 @@
+@media screen {
+    html:not(.no-js) [data-aos^="fade"][data-aos^="fade"] {
+        opacity: 0.001;
+        transition-property: opacity, transform;
+    }
+    html:not(.no-js) [data-aos^="fade"][data-aos^="fade"].aos-animate {
+        opacity: 1;
+        transform: none;
+    }
+}

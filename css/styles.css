@@ -1,0 +1,553 @@
+/* 
+-----------------------------------
+GLOBAL
+
+*/
+
+:root {
+    /* Colors */
+    --color1: rgba(45, 55, 65, 0.05);
+    --color2: #969ba0;
+    --color3: #4c555d;
+    --color4: #14191e;
+    /* https://www.smashingmagazine.com/2016/05/fluid-typography/ */
+    --fontSize: calc(14px + (45 - 14) * (100vw - 400px) / (6000 - 400));
+    --radius: 0.2rem;
+    --border: 0.11rem solid;
+}
+
+*,
+*:before,
+*:after {
+    /* border: 1px solid blue !important; */
+    -webkit-font-smoothing: antialiased;
+}
+
+html {
+    font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
+        sans-serif;
+    font-size: 16px;
+    font-size: var(--fontSize);
+    color: var(--color3);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.75;
+}
+
+/* Links */
+a {
+    color: var(--color3);
+    text-decoration: none;
+    border-bottom: var(--border) var(--color2);
+}
+
+a:hover,
+a:focus,
+a:active {
+    color: var(--color3);
+    border-color: var(--color3);
+}
+
+/* Other text */
+h1 {
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+}
+
+h2 {
+    font-size: 0.775rem;
+    font-weight: 600;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+}
+
+p,
+ul {
+    margin-bottom: 1rem;
+}
+
+ul,
+dl {
+    line-height: 2;
+}
+
+em {
+    font-style: italic;
+}
+
+strong {
+    font-weight: bold;
+}
+
+small {
+    font-size: 0.75rem;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+/* Lined List */
+.lined {
+    display: inline-block;
+}
+
+.lined li {
+    float: left;
+}
+
+.lined li::after {
+    content: " —";
+    margin-right: 0.21rem;
+}
+
+.lined li:last-child::after {
+    content: "";
+}
+
+/* Columns */
+.columns {
+    -webkit-columns: 2 13rem;
+    -moz-columns: 2 13rem;
+    columns: 2 13rem;
+    -webkit-column-gap: 4rem;
+    -moz-column-gap: 4rem;
+    column-gap: 4rem;
+}
+
+/* Images */
+img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+}
+
+img.full-width {
+    border-radius: 0;
+}
+
+img.full-width {
+    margin-left: -1.75rem;
+    width: calc(100% + 3.5rem);
+}
+
+img.full-width,
+section {
+    margin-bottom: 1.75rem;
+}
+
+/* 
+-----------------------------------
+HEADERS
+
+*/
+
+header>h1 {
+    margin-top: -1rem;
+    margin-bottom: 2.25rem;
+}
+
+header.mobile {
+    height: 15rem;
+    min-height: 50vh;
+    width: calc(100% + 3.5rem);
+    margin-left: -1.75rem;
+    margin-bottom: 3rem;
+    overflow: hidden;
+    background-color: var(--color4);
+    color: var(--color2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header.mobile>h1 {
+    font-size: 20vw;
+    margin: 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    transform: rotate(-5deg);
+    -webkit-text-fill-color: var(--color4);
+    -webkit-text-stroke-width: 0.11rem;
+    -webkit-text-stroke-color: var(--color2);
+}
+
+/* 
+-----------------------------------
+NAVIGATION
+
+*/
+
+nav {
+    margin: -0.5rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5rem;
+    /* plus header equals 2rem */
+    color: var(--color2);
+    line-height: 1.1;
+    border-bottom: none;
+}
+
+nav a.active,
+nav a:hover,
+nav a:focus,
+nav a:active {
+    color: var(--color3);
+}
+
+nav a.active::before {
+    content: "> "
+}
+
+
+/* 
+-----------------------------------
+ARTICLE
+
+*/
+
+article {
+    grid-column: span 2;
+}
+
+article header ul {
+    display: inline-block;
+    margin-bottom: 3.25rem;
+}
+
+article header li {
+    float: left;
+    margin-right: 2rem;
+}
+
+/* selection for fade-up animation */
+/* article > * {
+    border: 3px solid pink;
+    opacity: .25;
+    transition: opacity 1s;
+} 
+
+article > *.active {
+    opacity: 1;
+} */
+
+/* 
+-----------------------------------
+SECTIONS (SLIDE, FOOTER & MAIN)
+
+*/
+
+.top,
+.bottom {
+    width: 100%;
+    padding: 1.75rem;
+}
+
+.top {
+    position: relative;
+    background-color: white;
+    margin-bottom: 100vh;
+    z-index: 1;
+}
+
+.bottom {
+    position: fixed;
+    bottom: 0;
+    padding-bottom: 0;
+    background-color: var(--color4);
+    z-index: 0;
+}
+
+footer {
+    grid-area: footer;
+    color: var(--color2);
+    height: 100vh;
+    width: 100%;
+    padding-top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    transition: opacity 1s;
+}
+
+footer blockquote {
+    margin-top: -2rem;
+}
+
+main {
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+}
+
+/* 
+-----------------------------------
+SECTIONS (HEADER)
+
+*/
+
+#cir-indicator {
+    display: none;
+}
+
+/* Progress bar */
+#bar-indicator {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    height: 0.4rem;
+    background: rgba(127, 255, 212, 0.75);
+    width: 0%;
+}
+
+#bar-indicator::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0.4rem;
+    background: var(--color1);
+}
+
+/* 
+-----------------------------------
+SECTIONS (PROFILE)
+
+*/
+
+
+/* 
+-----------------------------------
+SECTIONS (RECENT WORK)
+
+*/
+
+#recent-work {
+    padding-bottom: 1rem;
+}
+
+
+#recent-work .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 4rem;
+}
+
+.item {
+    grid-column: span 2;
+    padding-top: 2.15rem;
+    margin-top: -2.15rem;
+    display: none;
+}
+
+/* Reveal the project */
+.item.active {
+    display: block;
+}
+
+.item article {
+    background-color: var(--color1);
+    border-radius: var(--radius);
+    padding: 1.75rem;
+}
+
+.item aside {
+    padding-bottom: 6.6rem;
+    font-size: 2rem;
+    line-height: .6;
+}
+
+/* Project item navigation */
+.item aside a {
+    border: 0;
+}
+
+.item aside a:first-child {
+    margin-right: 1rem;
+}
+
+/* The close project x */
+.item aside a:last-child {
+    float: right;
+}
+
+
+img {
+    margin-bottom: 0.75rem;
+}
+
+/* Remove unwanted border */
+a.item-btn {
+    border-bottom: 0;
+}
+
+/* Border for project items */
+a.item-btn:hover figcaption,
+a.item-btn:focus figcaption,
+a.item-btn:active figcaption {
+    border-bottom: var(--border);
+}
+
+/* Make border size of text */
+figcaption {
+    display: inline;
+}
+
+
+
+
+/* 
+-----------------------------------
+SECTIONS (CONTACT)
+
+*/
+
+dd {
+    background-color: var(--color1);
+    padding: 1rem;
+    border-radius: var(--radius);
+    margin-top: -0.31rem;
+    display: none;
+}
+
+dd.active {
+    display: block;
+}
+
+a#quote-btn {
+    border-bottom: 0;
+    color: var(--color2);
+    font-size: 2rem;
+    line-height: 1;
+}
+
+a#quote-btn:hover {
+    color: var(--color3);
+}
+
+/* 
+-----------------------------------
+@MEDIA DESKTOP
+
+*/
+
+@media (min-width: 1000px) {
+
+    /* Full width photos */
+    img.full-width {
+        border-radius: var(--radius);
+    }
+
+    img.full-width {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    /* Container for padding, positioning & slideout footer */
+    .top,
+    .bottom {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        padding: 0 10%;
+    }
+
+    .top {
+        grid-template-areas: "header main";
+        margin-bottom: 100vh;
+    }
+
+    .bottom {
+        grid-template-areas: "header footer";
+    }
+
+    /* (body) Header */
+    .header {
+        grid-area: header;
+        height: 100vh;
+        padding-top: 6rem;
+        position: fixed;
+    }
+
+    /* Navigation */
+    nav {
+        margin-top: 5.5rem;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Scroll Indicators */
+    #cir-indicator {
+        position: absolute;
+        bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #cir-indicator canvas {
+        border-radius: 50%;
+        box-shadow: inset 0px 0px 0px 3.75px var(--color1);
+        width: 4rem;
+        height: 4rem;
+    }
+
+    #cir-indicator p {
+        position: absolute;
+        color: var(--color2);
+    }
+
+    #bar-indicator {
+        display: none;
+    }
+
+    /* Main */
+    main {
+        grid-area: main;
+        padding-top: 0;
+        padding-bottom: 3.25rem;
+    }
+
+    header.mobile {
+        display: none;
+    }
+
+    article {
+        padding-top: 13.5rem;
+    }
+
+    .item {
+        padding-top: 4rem;
+        margin-top: -4rem;
+    }
+}
+
+/* 
+-----------------------------------
+@MEDIA DESKTOP
+
+*/
+
+@media (min-width: 650px) {
+    .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 4rem;
+    }
+}
+
+@media (max-width: 484px) {
+    #recent-work .grid {
+        grid-gap: 3rem;
+    }
+}
