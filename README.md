@@ -1,2 +1,2 @@
-# personal-website
-My personal website (https://otlyn.com)
+# My personal website
+https://otlyn.com
