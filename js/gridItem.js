@@ -1,9 +1,9 @@
-function toggleItem(num) {
-    // Get items from Recent Work
-    var recentWork = document.querySelector("#recent-work");
-    var item = recentWork.querySelectorAll(".item");
-    var itemBtn = recentWork.querySelectorAll(".item-btn");
+// Get items from Recent Work
+var recentWork = document.querySelector("#recent-work");
+var item = recentWork.querySelectorAll(".item");
+var itemBtn = recentWork.querySelectorAll(".item-btn");
 
+function toggleItem(num) {
     // Lower opacity for item button
     itemBtn[num].style.opacity = ".3";
 
